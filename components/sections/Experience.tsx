@@ -186,20 +186,20 @@ export default function Experience() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32"
+      className="relative overflow-hidden py-24 sm:py-32 md:py-40 lg:py-48"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
         {/* Section Label */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <p className="font-mono text-xs font-medium tracking-widest text-accent sm:text-sm">
-            02 — THE PROTOCOL HISTORY
+        <div className="mb-16 sm:mb-20 md:mb-24">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent sm:text-sm">
+            02 — The Protocol History
           </p>
         </div>
 
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-16 text-3xl font-bold text-foreground sm:mb-20 sm:text-4xl md:mb-24 md:text-5xl"
+          className="mb-16 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-20 md:mb-24"
         >
           Execution at scale.
         </h2>
@@ -209,11 +209,11 @@ export default function Experience() {
           {/* Vertical timeline line */}
           <div
             ref={timelineRef}
-            className="absolute left-0 top-0 hidden h-full w-[2px] bg-linear-to-b from-accent/80 to-accent/40 md:block"
+            className="absolute left-0 top-0 hidden h-full w-px bg-gradient-to-b from-accent via-accent/60 to-accent/20 lg:block"
           />
 
           {/* Roles */}
-          <div className="space-y-12 sm:space-y-16 md:ml-16 md:space-y-20">
+          <div className="space-y-8 sm:space-y-10 lg:ml-12 lg:space-y-12">
             {roles.map((role, index) => (
               <div
                 key={`${role.company}-${index}`}
@@ -223,17 +223,17 @@ export default function Experience() {
                 className="relative"
               >
                 {/* Timeline dot */}
-                <div className="absolute -left-[9px] top-2 hidden h-4 w-4 rounded-full border-2 border-accent bg-background md:block" />
+                <div className="absolute -left-[5px] top-8 hidden h-2.5 w-2.5 rounded-full border-2 border-accent bg-background lg:block" />
 
                 {/* Role Card */}
-                <div className="group relative overflow-hidden rounded-2xl border border-border bg-background-elevated p-6 transition-colors hover:border-accent/50 sm:rounded-3xl sm:p-8 md:p-10">
+                <div className="group relative overflow-hidden rounded-xl border border-border bg-background-elevated p-6 transition-all duration-300 hover:border-accent/40 hover:bg-background-subtle sm:rounded-2xl sm:p-8 md:p-10">
                   {/* Header */}
                   <div className="mb-6 sm:mb-8">
-                    <div className="mb-2 flex flex-col justify-between gap-2 sm:flex-row sm:items-start sm:gap-4">
-                      <h3 className="text-xl font-bold text-foreground sm:text-2xl md:text-3xl">
+                    <div className="mb-3 flex flex-col justify-between gap-2 sm:flex-row sm:items-start sm:gap-6">
+                      <h3 className="text-xl font-bold text-foreground sm:text-2xl">
                         {role.company}
                       </h3>
-                      <span className="font-mono text-xs text-subtle sm:text-sm">
+                      <span className="shrink-0 font-mono text-xs text-subtle sm:text-sm">
                         {role.period}
                       </span>
                     </div>
@@ -243,11 +243,11 @@ export default function Experience() {
                   </div>
 
                   {/* Impact Points */}
-                  <ul className="space-y-3 sm:space-y-4">
+                  <ul className="space-y-4 sm:space-y-5">
                     {role.impact.map((point, idx) => (
-                      <li key={idx} className="flex gap-3 sm:gap-4">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent sm:mt-2" />
-                        <span className="text-sm leading-relaxed text-muted sm:text-base md:text-lg md:leading-relaxed">
+                      <li key={idx} className="flex gap-4">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent/70" />
+                        <span className="text-sm leading-[1.7] text-muted sm:text-base sm:leading-[1.7]">
                           {point}
                         </span>
                       </li>
@@ -256,7 +256,7 @@ export default function Experience() {
 
                   {/* Hover effect gradient */}
                   <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <div className="absolute right-0 top-0 h-32 w-32 bg-[radial-gradient(circle,rgba(255,107,0,0.15)_0%,transparent_70%)] sm:h-40 sm:w-40" />
+                    <div className="absolute right-0 top-0 h-32 w-32 bg-[radial-gradient(circle,rgba(255,107,0,0.1)_0%,transparent_70%)] sm:h-40 sm:w-40" />
                   </div>
                 </div>
               </div>

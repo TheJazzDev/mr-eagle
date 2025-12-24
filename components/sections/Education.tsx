@@ -81,35 +81,35 @@ export default function Education() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-16 sm:py-20 md:py-24 lg:py-32"
+      className="relative overflow-hidden py-24 sm:py-32 md:py-40 lg:py-48"
     >
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 md:px-8">
+      <div className="mx-auto max-w-3xl px-6 sm:px-8 md:px-12 lg:px-16">
         {/* Section Label */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <p className="font-mono text-xs font-medium tracking-widest text-accent sm:text-sm">
-            04 — THE FOUNDATION
+        <div className="mb-16 sm:mb-20 md:mb-24">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent sm:text-sm">
+            04 — The Foundation
           </p>
         </div>
 
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-12 text-3xl font-bold text-foreground sm:mb-16 sm:text-4xl md:mb-20 md:text-5xl"
+          className="mb-14 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-18 md:mb-20"
         >
           Built on fundamentals.
         </h2>
 
         {/* Education Items */}
-        <div className="space-y-8 sm:space-y-10 md:space-y-12">
+        <div className="space-y-10 sm:space-y-12 md:space-y-14">
           {education.map((edu, index) => (
             <div
               key={`${edu.institution}-${index}`}
               ref={(el) => {
                 itemsRef.current[index] = el;
               }}
-              className="group relative border-l-2 border-border pl-6 transition-colors hover:border-accent sm:pl-8"
+              className="group relative border-l border-border/60 py-1 pl-8 transition-colors hover:border-accent sm:pl-10"
             >
-              <div className="space-y-2">
+              <div className="space-y-2 sm:space-y-3">
                 <h3 className="text-lg font-bold text-foreground transition-colors group-hover:text-accent sm:text-xl md:text-2xl">
                   {edu.institution}
                 </h3>

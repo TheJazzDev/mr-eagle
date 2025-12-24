@@ -102,20 +102,20 @@ export default function Impact() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-background-elevated py-20 sm:py-24 md:py-32 lg:py-40"
+      className="relative overflow-hidden bg-background-elevated py-24 sm:py-32 md:py-40 lg:py-48"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+      <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16">
         {/* Section Label */}
-        <div className="mb-12 text-center sm:mb-16 md:mb-20">
-          <p className="font-mono text-xs font-medium tracking-widest text-accent sm:text-sm">
-            THE IMPACT
+        <div className="mb-16 text-center sm:mb-20 md:mb-24">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent sm:text-sm">
+            The Impact
           </p>
         </div>
 
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-16 text-center text-3xl font-bold text-foreground sm:mb-20 sm:text-4xl md:mb-24 md:text-5xl"
+          className="mb-16 text-center text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-20 md:mb-24"
         >
           Proven Results,
           <br />
@@ -123,22 +123,22 @@ export default function Impact() {
         </h2>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
           {metrics.map((metric, index) => (
             <div
               key={`${metric.label}-${index}`}
               ref={(el) => {
                 metricsRef.current[index] = el;
               }}
-              className="group relative overflow-hidden rounded-3xl border-2 border-border bg-background p-8 transition-all duration-300 hover:border-accent hover:bg-background-subtle sm:p-10 md:p-12"
+              className="group relative overflow-hidden rounded-2xl border border-border bg-background p-8 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-3xl sm:p-10 md:p-12"
             >
               {/* Metric Value */}
-              <div className="mb-4 text-5xl font-bold text-accent sm:mb-6 sm:text-6xl md:text-7xl">
+              <div className="mb-4 text-4xl font-bold text-accent sm:mb-5 sm:text-5xl md:mb-6 md:text-6xl">
                 {metric.value}
               </div>
 
               {/* Label */}
-              <h3 className="mb-2 text-lg font-bold text-foreground sm:mb-3 sm:text-xl md:text-2xl">
+              <h3 className="mb-2 text-base font-bold text-foreground sm:mb-3 sm:text-lg md:text-xl">
                 {metric.label}
               </h3>
 
@@ -149,7 +149,7 @@ export default function Impact() {
 
               {/* Hover gradient */}
               <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="absolute -right-10 -top-10 h-40 w-40 bg-[radial-gradient(circle,rgba(255,107,0,0.1)_0%,transparent_70%)]" />
+                <div className="absolute -right-8 -top-8 h-32 w-32 bg-[radial-gradient(circle,rgba(255,107,0,0.12)_0%,transparent_70%)] sm:h-40 sm:w-40" />
               </div>
             </div>
           ))}

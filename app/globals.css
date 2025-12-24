@@ -3,39 +3,53 @@
 :root {
   /* MR EAGLE Brand Colors - From CV */
   --background: #000000;
-  --background-elevated: #1a1a1a;
-  --background-subtle: #2a2a2a;
+  --background-elevated: #0a0a0a;
+  --background-subtle: #141414;
   --foreground: #ffffff;
-  --foreground-muted: #cccccc;
-  --foreground-subtle: #999999;
+  --foreground-muted: #b3b3b3;
+  --foreground-subtle: #737373;
   --accent: #FF6B00;
   --accent-hover: #FF8533;
   --accent-dark: #CC5500;
-  --border: #333333;
-  --border-subtle: #222222;
+  --border: #262626;
+  --border-subtle: #1a1a1a;
 
   /* Grid & Effects */
-  --grid-color: rgba(250, 250, 250, 0.03);
-  --noise-opacity: 0.015;
+  --grid-color: rgba(255, 255, 255, 0.02);
+  --noise-opacity: 0.012;
 
-  /* Spacing Scale - Premium proportions */
-  --space-unit: 4px;
-  --space-xs: calc(var(--space-unit) * 2);
-  --space-sm: calc(var(--space-unit) * 3);
-  --space-md: calc(var(--space-unit) * 4);
-  --space-lg: calc(var(--space-unit) * 6);
-  --space-xl: calc(var(--space-unit) * 8);
-  --space-2xl: calc(var(--space-unit) * 12);
-  --space-3xl: calc(var(--space-unit) * 16);
-  --space-4xl: calc(var(--space-unit) * 24);
-  --space-5xl: calc(var(--space-unit) * 32);
+  /* Spacing Scale - Premium proportions (8px base) */
+  --space-unit: 8px;
+  --space-xs: calc(var(--space-unit) * 0.5);   /* 4px */
+  --space-sm: calc(var(--space-unit) * 1);     /* 8px */
+  --space-md: calc(var(--space-unit) * 2);     /* 16px */
+  --space-lg: calc(var(--space-unit) * 3);     /* 24px */
+  --space-xl: calc(var(--space-unit) * 4);     /* 32px */
+  --space-2xl: calc(var(--space-unit) * 6);    /* 48px */
+  --space-3xl: calc(var(--space-unit) * 8);    /* 64px */
+  --space-4xl: calc(var(--space-unit) * 12);   /* 96px */
+  --space-5xl: calc(var(--space-unit) * 16);   /* 128px */
+  --space-6xl: calc(var(--space-unit) * 24);   /* 192px */
+
+  /* Section spacing - consistent vertical rhythm */
+  --section-padding-sm: clamp(64px, 10vw, 96px);
+  --section-padding-md: clamp(96px, 12vw, 128px);
+  --section-padding-lg: clamp(128px, 15vw, 192px);
+
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-background-subtle: var(--background-subtle);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
 
   /* Custom Tailwind colors */
   --color-accent: var(--accent);
@@ -43,6 +57,8 @@
   --color-accent-dark: var(--accent-dark);
   --color-muted: var(--foreground-muted);
   --color-subtle: var(--foreground-subtle);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
 }
 
 * {
@@ -59,7 +75,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -126,7 +142,63 @@ body::before {
   background-image:
     linear-gradient(var(--grid-color) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background-size: 60px 60px;
   opacity: 1;
   pointer-events: none;
+}
+
+/* Section utilities for consistent spacing */
+.section-padding {
+  padding-top: var(--section-padding-md);
+  padding-bottom: var(--section-padding-md);
+}
+
+.section-padding-lg {
+  padding-top: var(--section-padding-lg);
+  padding-bottom: var(--section-padding-lg);
+}
+
+/* Container padding - responsive horizontal padding */
+.container-padding {
+  padding-left: clamp(20px, 5vw, 48px);
+  padding-right: clamp(20px, 5vw, 48px);
+}
+
+/* Content width constraints */
+.content-width-sm {
+  max-width: var(--container-sm);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-width-md {
+  max-width: var(--container-md);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-width-lg {
+  max-width: var(--container-lg);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-width-xl {
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section divider line */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent 100%
+  );
+  margin: 0 auto;
+  max-width: 80%;
 }

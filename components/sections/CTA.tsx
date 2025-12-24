@@ -102,20 +102,20 @@ export default function CTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden py-16 sm:py-20 md:py-24"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-32 sm:px-8 sm:py-40 md:px-12 md:py-48 lg:px-16"
     >
       {/* Animated Grid Background */}
       <div ref={gridRef} className="grid-background" />
 
       {/* Radial gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.9)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,transparent_0%,rgba(0,0,0,0.95)_100%)]" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-4xl px-4 text-center sm:px-6 md:px-8">
+      <div className="relative z-10 w-full max-w-3xl text-center">
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-12 text-4xl font-bold tracking-tight text-foreground sm:mb-16 sm:text-5xl md:mb-20 md:text-6xl lg:text-7xl"
+          className="mb-14 text-[clamp(2.5rem,7vw,5rem)] font-bold leading-[1.05] tracking-tight text-foreground sm:mb-18 md:mb-20"
         >
           Let's build something
           <br />
@@ -125,18 +125,18 @@ export default function CTA() {
         {/* Contact Links */}
         <div
           ref={linksRef}
-          className="mb-12 flex flex-col items-center gap-6 sm:mb-16 sm:gap-8 md:mb-20"
+          className="mb-16 flex flex-col items-center gap-4 sm:mb-20 sm:gap-5 md:mb-24"
         >
           {/* Email */}
           <a
             href="mailto:web3eaglealpha@gmail.com"
-            className="contact-link group relative overflow-hidden rounded-xl border border-border bg-background-elevated px-6 py-3 transition-all duration-300 hover:scale-105 hover:border-accent hover:bg-background-subtle sm:rounded-2xl sm:px-8 sm:py-4"
+            className="contact-link group relative overflow-hidden rounded-lg border border-border bg-background-elevated px-6 py-4 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-xl sm:px-8 sm:py-5"
           >
-            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base md:text-lg">
+            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base">
               web3eaglealpha@gmail.com
             </span>
             <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.15)_0%,transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.1)_0%,transparent_70%)]" />
             </div>
           </a>
 
@@ -145,13 +145,13 @@ export default function CTA() {
             href="https://twitter.com/web3eaglealpha"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact-link group relative overflow-hidden rounded-xl border border-border bg-background-elevated px-6 py-3 transition-all duration-300 hover:scale-105 hover:border-accent hover:bg-background-subtle sm:rounded-2xl sm:px-8 sm:py-4"
+            className="contact-link group relative overflow-hidden rounded-lg border border-border bg-background-elevated px-6 py-4 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-xl sm:px-8 sm:py-5"
           >
-            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base md:text-lg">
+            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base">
               @web3eaglealpha
             </span>
             <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.15)_0%,transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.1)_0%,transparent_70%)]" />
             </div>
           </a>
 
@@ -160,33 +160,33 @@ export default function CTA() {
             href="https://t.me/web3eglealpha"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact-link group relative overflow-hidden rounded-xl border border-border bg-background-elevated px-6 py-3 transition-all duration-300 hover:scale-105 hover:border-accent hover:bg-background-subtle sm:rounded-2xl sm:px-8 sm:py-4"
+            className="contact-link group relative overflow-hidden rounded-lg border border-border bg-background-elevated px-6 py-4 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-xl sm:px-8 sm:py-5"
           >
-            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base md:text-lg">
+            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base">
               @web3eglealpha
             </span>
             <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.15)_0%,transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.1)_0%,transparent_70%)]" />
             </div>
           </a>
 
           {/* Phone */}
           <a
             href="tel:+447453741016"
-            className="contact-link group relative overflow-hidden rounded-xl border border-border bg-background-elevated px-6 py-3 transition-all duration-300 hover:scale-105 hover:border-accent hover:bg-background-subtle sm:rounded-2xl sm:px-8 sm:py-4"
+            className="contact-link group relative overflow-hidden rounded-lg border border-border bg-background-elevated px-6 py-4 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-xl sm:px-8 sm:py-5"
           >
-            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base md:text-lg">
+            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base">
               +44 745 374 1016
             </span>
             <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.15)_0%,transparent_70%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,107,0,0.1)_0%,transparent_70%)]" />
             </div>
           </a>
         </div>
 
         {/* Location */}
-        <p ref={locationRef} className="font-mono text-xs tracking-widest text-subtle sm:text-sm">
-          AFRICA · NIGERIA
+        <p ref={locationRef} className="font-mono text-[10px] uppercase tracking-[0.3em] text-subtle sm:text-xs">
+          Africa · Nigeria
         </p>
       </div>
     </section>
