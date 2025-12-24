@@ -186,12 +186,12 @@ export default function Experience() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-24 sm:py-32 md:py-40 lg:py-48"
+      className="relative overflow-hidden py-32 sm:py-40 md:py-52 lg:py-64"
     >
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 lg:px-20">
         {/* Section Label */}
-        <div className="mb-16 sm:mb-20 md:mb-24">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent sm:text-sm">
+        <div className="mb-20 sm:mb-24 md:mb-32">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-accent sm:text-sm">
             02 — The Protocol History
           </p>
         </div>
@@ -199,7 +199,7 @@ export default function Experience() {
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-16 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-20 md:mb-24"
+          className="mb-20 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-24 md:mb-32"
         >
           Execution at scale.
         </h2>
@@ -213,7 +213,7 @@ export default function Experience() {
           />
 
           {/* Roles */}
-          <div className="space-y-8 sm:space-y-10 lg:ml-12 lg:space-y-12">
+          <div className="space-y-10 sm:space-y-14 lg:ml-16 lg:space-y-16">
             {roles.map((role, index) => (
               <div
                 key={`${role.company}-${index}`}
@@ -223,31 +223,31 @@ export default function Experience() {
                 className="relative"
               >
                 {/* Timeline dot */}
-                <div className="absolute -left-[5px] top-8 hidden h-2.5 w-2.5 rounded-full border-2 border-accent bg-background lg:block" />
+                <div className="absolute -left-[7px] top-10 hidden h-3.5 w-3.5 rounded-full border-2 border-accent bg-background lg:block" />
 
                 {/* Role Card */}
-                <div className="group relative overflow-hidden rounded-xl border border-border bg-background-elevated p-6 transition-all duration-300 hover:border-accent/40 hover:bg-background-subtle sm:rounded-2xl sm:p-8 md:p-10">
+                <div className="group relative overflow-hidden rounded-2xl border border-border bg-background-elevated p-8 transition-all duration-300 hover:border-accent/40 hover:bg-background-subtle sm:rounded-3xl sm:p-10 md:p-12 lg:p-14">
                   {/* Header */}
-                  <div className="mb-6 sm:mb-8">
-                    <div className="mb-3 flex flex-col justify-between gap-2 sm:flex-row sm:items-start sm:gap-6">
-                      <h3 className="text-xl font-bold text-foreground sm:text-2xl">
+                  <div className="mb-8 sm:mb-10 md:mb-12">
+                    <div className="mb-4 flex flex-col justify-between gap-3 sm:flex-row sm:items-start sm:gap-8">
+                      <h3 className="text-2xl font-bold text-foreground sm:text-3xl">
                         {role.company}
                       </h3>
                       <span className="shrink-0 font-mono text-xs text-subtle sm:text-sm">
                         {role.period}
                       </span>
                     </div>
-                    <p className="text-base font-medium text-accent sm:text-lg">
+                    <p className="text-lg font-medium text-accent sm:text-xl">
                       {role.role}
                     </p>
                   </div>
 
                   {/* Impact Points */}
-                  <ul className="space-y-4 sm:space-y-5">
+                  <ul className="space-y-5 sm:space-y-6 md:space-y-7">
                     {role.impact.map((point, idx) => (
-                      <li key={idx} className="flex gap-4">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent/70" />
-                        <span className="text-sm leading-[1.7] text-muted sm:text-base sm:leading-[1.7]">
+                      <li key={idx} className="flex gap-5">
+                        <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-accent/70" />
+                        <span className="text-base leading-[1.8] text-muted sm:text-lg sm:leading-[1.8]">
                           {point}
                         </span>
                       </li>
@@ -256,7 +256,7 @@ export default function Experience() {
 
                   {/* Hover effect gradient */}
                   <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    <div className="absolute right-0 top-0 h-32 w-32 bg-[radial-gradient(circle,rgba(255,107,0,0.1)_0%,transparent_70%)] sm:h-40 sm:w-40" />
+                    <div className="absolute right-0 top-0 h-40 w-40 bg-[radial-gradient(circle,rgba(255,107,0,0.1)_0%,transparent_70%)] sm:h-48 sm:w-48" />
                   </div>
                 </div>
               </div>

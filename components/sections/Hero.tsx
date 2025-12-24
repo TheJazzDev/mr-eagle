@@ -107,7 +107,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-24 sm:px-8 md:px-12 lg:px-16"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-32 sm:px-8 sm:py-40 md:px-12 lg:px-20"
     >
       {/* Grid Background */}
       <div className="grid-background" />
@@ -116,11 +116,11 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_50%,transparent_0%,rgba(0,0,0,0.9)_100%)]" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-4xl">
+      <div className="relative z-10 w-full max-w-5xl">
         {/* Name - The Signal */}
         <h1
           ref={nameRef}
-          className="mb-6 text-center font-sans text-[clamp(3rem,10vw,7rem)] font-bold leading-[0.95] tracking-tight text-foreground sm:mb-8 md:mb-10"
+          className="mb-8 text-center font-sans text-[clamp(3.5rem,12vw,9rem)] font-bold leading-[0.9] tracking-tight text-foreground sm:mb-10 md:mb-14"
           style={{ perspective: '1000px' }}
         >
           MR EAGLE
@@ -129,7 +129,7 @@ export default function Hero() {
         {/* Subtitle - Animated reveal */}
         <p
           ref={subtitleRef}
-          className="mb-10 text-center font-mono text-sm font-medium uppercase tracking-[0.2em] text-accent sm:mb-14 sm:text-base md:mb-16 md:text-lg"
+          className="mb-14 text-center font-mono text-sm font-medium uppercase tracking-[0.25em] text-accent sm:mb-18 sm:text-base md:mb-20 md:text-lg"
         >
           Project Manager • Marketer • Advisor
         </p>
@@ -137,7 +137,7 @@ export default function Hero() {
         {/* Statement - The manifesto */}
         <p
           ref={statementRef}
-          className="mx-auto max-w-2xl text-center text-lg leading-[1.7] text-muted sm:text-xl md:text-2xl md:leading-[1.6]"
+          className="mx-auto max-w-3xl text-center text-xl leading-[1.8] text-muted sm:text-2xl sm:leading-[1.8] md:text-3xl md:leading-[1.7]"
         >
           Turning complex ideas into clear, practical outcomes across product, operations, and growth.
         </p>
@@ -146,13 +146,13 @@ export default function Hero() {
       {/* Scroll Indicator */}
       <div
         ref={scrollIndicatorRef}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 sm:bottom-16 md:bottom-20"
+        className="absolute bottom-16 left-1/2 -translate-x-1/2 sm:bottom-20 md:bottom-24"
       >
-        <div className="flex flex-col items-center gap-3">
-          <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-subtle sm:text-xs">
+        <div className="flex flex-col items-center gap-4">
+          <span className="text-[10px] font-medium uppercase tracking-[0.35em] text-subtle sm:text-xs">
             Scroll
           </span>
-          <div className="h-10 w-px bg-gradient-to-b from-subtle to-transparent sm:h-14" />
+          <div className="h-12 w-px bg-gradient-to-b from-subtle to-transparent sm:h-16" />
         </div>
       </div>
     </section>

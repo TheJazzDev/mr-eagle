@@ -81,12 +81,12 @@ export default function Education() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-24 sm:py-32 md:py-40 lg:py-48"
+      className="relative overflow-hidden py-32 sm:py-40 md:py-52 lg:py-64"
     >
-      <div className="mx-auto max-w-3xl px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 md:px-12 lg:px-20">
         {/* Section Label */}
-        <div className="mb-16 sm:mb-20 md:mb-24">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent sm:text-sm">
+        <div className="mb-20 sm:mb-24 md:mb-32">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-accent sm:text-sm">
             04 — The Foundation
           </p>
         </div>
@@ -94,28 +94,28 @@ export default function Education() {
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-14 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-18 md:mb-20"
+          className="mb-16 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-20 md:mb-24"
         >
           Built on fundamentals.
         </h2>
 
         {/* Education Items */}
-        <div className="space-y-10 sm:space-y-12 md:space-y-14">
+        <div className="space-y-14 sm:space-y-16 md:space-y-20">
           {education.map((edu, index) => (
             <div
               key={`${edu.institution}-${index}`}
               ref={(el) => {
                 itemsRef.current[index] = el;
               }}
-              className="group relative border-l border-border/60 py-1 pl-8 transition-colors hover:border-accent sm:pl-10"
+              className="group relative border-l-2 border-border/60 py-2 pl-10 transition-colors hover:border-accent sm:pl-12 md:pl-14"
             >
-              <div className="space-y-2 sm:space-y-3">
-                <h3 className="text-lg font-bold text-foreground transition-colors group-hover:text-accent sm:text-xl md:text-2xl">
+              <div className="space-y-3 sm:space-y-4 md:space-y-5">
+                <h3 className="text-xl font-bold text-foreground transition-colors group-hover:text-accent sm:text-2xl md:text-3xl">
                   {edu.institution}
                 </h3>
-                <p className="text-base font-medium text-muted sm:text-lg">{edu.program}</p>
+                <p className="text-lg font-medium text-muted sm:text-xl">{edu.program}</p>
                 {edu.focus && (
-                  <p className="text-sm text-subtle sm:text-base">{edu.focus}</p>
+                  <p className="text-base text-subtle sm:text-lg">{edu.focus}</p>
                 )}
               </div>
             </div>

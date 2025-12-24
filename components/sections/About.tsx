@@ -102,24 +102,24 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-24 sm:py-32 md:py-40 lg:py-48"
+      className="relative overflow-hidden py-32 sm:py-40 md:py-52 lg:py-64"
     >
-      <div className="mx-auto max-w-3xl px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="mx-auto max-w-4xl px-6 sm:px-8 md:px-12 lg:px-20">
         {/* Section Label */}
-        <div className="mb-16 sm:mb-20 md:mb-24">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent sm:text-sm">
+        <div className="mb-20 sm:mb-24 md:mb-32">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-accent sm:text-sm">
             01 — The Operator
           </p>
           <div
             ref={lineRef}
-            className="mt-4 h-px w-12 bg-accent sm:mt-5 sm:w-16 md:w-20"
+            className="mt-5 h-px w-16 bg-accent sm:mt-6 sm:w-20 md:w-24"
           />
         </div>
 
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-12 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-16 md:mb-20"
+          className="mb-16 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-20 md:mb-24"
         >
           Building systems,
           <br />
@@ -127,24 +127,24 @@ export default function About() {
         </h2>
 
         {/* Content */}
-        <div className="space-y-8 sm:space-y-10 md:space-y-12">
+        <div className="space-y-10 sm:space-y-12 md:space-y-14 lg:space-y-16">
           <p
             ref={paragraph1Ref}
-            className="text-base leading-[1.8] text-muted sm:text-lg sm:leading-[1.8] md:text-xl md:leading-[1.75]"
+            className="text-lg leading-[1.9] text-muted sm:text-xl sm:leading-[1.9] md:text-2xl md:leading-[1.85]"
           >
             I work across product, operations, and growth, focusing on turning complex ideas into clear, practical outcomes. I'm involved in shaping direction, improving execution, and building systems that support sustainable scale.
           </p>
 
           <p
             ref={paragraph2Ref}
-            className="text-base leading-[1.8] text-muted sm:text-lg sm:leading-[1.8] md:text-xl md:leading-[1.75]"
+            className="text-lg leading-[1.9] text-muted sm:text-xl sm:leading-[1.9] md:text-2xl md:leading-[1.85]"
           >
             My experience spans early-stage environments where structure, communication, and follow-through matter. I care about how products are built, how teams collaborate, and how ideas move from concept to real-world use.
           </p>
 
           <p
             ref={paragraph3Ref}
-            className="text-base leading-[1.8] text-muted sm:text-lg sm:leading-[1.8] md:text-xl md:leading-[1.75]"
+            className="text-lg leading-[1.9] text-muted sm:text-xl sm:leading-[1.9] md:text-2xl md:leading-[1.85]"
           >
             I value clarity, consistency, and thoughtful execution, and I enjoy working where long-term thinking and disciplined action come together.
           </p>

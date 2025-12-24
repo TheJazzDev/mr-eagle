@@ -102,7 +102,7 @@ export default function CTA() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-32 sm:px-8 sm:py-40 md:px-12 md:py-48 lg:px-16"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-40 sm:px-8 sm:py-52 md:px-12 md:py-64 lg:px-20"
     >
       {/* Animated Grid Background */}
       <div ref={gridRef} className="grid-background" />
@@ -111,11 +111,11 @@ export default function CTA() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,transparent_0%,rgba(0,0,0,0.95)_100%)]" />
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-3xl text-center">
+      <div className="relative z-10 w-full max-w-4xl text-center">
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-14 text-[clamp(2.5rem,7vw,5rem)] font-bold leading-[1.05] tracking-tight text-foreground sm:mb-18 md:mb-20"
+          className="mb-20 text-[clamp(2.5rem,8vw,6rem)] font-bold leading-[1.05] tracking-tight text-foreground sm:mb-24 md:mb-28"
         >
           Let's build something
           <br />
@@ -125,14 +125,14 @@ export default function CTA() {
         {/* Contact Links */}
         <div
           ref={linksRef}
-          className="mb-16 flex flex-col items-center gap-4 sm:mb-20 sm:gap-5 md:mb-24"
+          className="mb-20 flex flex-col items-center gap-5 sm:mb-24 sm:gap-6 md:mb-28 md:gap-7"
         >
           {/* Email */}
           <a
             href="mailto:web3eaglealpha@gmail.com"
-            className="contact-link group relative overflow-hidden rounded-lg border border-border bg-background-elevated px-6 py-4 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-xl sm:px-8 sm:py-5"
+            className="contact-link group relative overflow-hidden rounded-xl border border-border bg-background-elevated px-8 py-5 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-2xl sm:px-10 sm:py-6 md:px-12 md:py-7"
           >
-            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base">
+            <span className="relative z-10 block font-mono text-base font-medium text-foreground sm:text-lg">
               web3eaglealpha@gmail.com
             </span>
             <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -145,9 +145,9 @@ export default function CTA() {
             href="https://twitter.com/web3eaglealpha"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact-link group relative overflow-hidden rounded-lg border border-border bg-background-elevated px-6 py-4 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-xl sm:px-8 sm:py-5"
+            className="contact-link group relative overflow-hidden rounded-xl border border-border bg-background-elevated px-8 py-5 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-2xl sm:px-10 sm:py-6 md:px-12 md:py-7"
           >
-            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base">
+            <span className="relative z-10 block font-mono text-base font-medium text-foreground sm:text-lg">
               @web3eaglealpha
             </span>
             <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -160,9 +160,9 @@ export default function CTA() {
             href="https://t.me/web3eglealpha"
             target="_blank"
             rel="noopener noreferrer"
-            className="contact-link group relative overflow-hidden rounded-lg border border-border bg-background-elevated px-6 py-4 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-xl sm:px-8 sm:py-5"
+            className="contact-link group relative overflow-hidden rounded-xl border border-border bg-background-elevated px-8 py-5 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-2xl sm:px-10 sm:py-6 md:px-12 md:py-7"
           >
-            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base">
+            <span className="relative z-10 block font-mono text-base font-medium text-foreground sm:text-lg">
               @web3eglealpha
             </span>
             <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -173,9 +173,9 @@ export default function CTA() {
           {/* Phone */}
           <a
             href="tel:+447453741016"
-            className="contact-link group relative overflow-hidden rounded-lg border border-border bg-background-elevated px-6 py-4 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-xl sm:px-8 sm:py-5"
+            className="contact-link group relative overflow-hidden rounded-xl border border-border bg-background-elevated px-8 py-5 transition-all duration-300 hover:border-accent/50 hover:bg-background-subtle sm:rounded-2xl sm:px-10 sm:py-6 md:px-12 md:py-7"
           >
-            <span className="relative z-10 block font-mono text-sm font-medium text-foreground sm:text-base">
+            <span className="relative z-10 block font-mono text-base font-medium text-foreground sm:text-lg">
               +44 745 374 1016
             </span>
             <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -185,7 +185,7 @@ export default function CTA() {
         </div>
 
         {/* Location */}
-        <p ref={locationRef} className="font-mono text-[10px] uppercase tracking-[0.3em] text-subtle sm:text-xs">
+        <p ref={locationRef} className="font-mono text-xs uppercase tracking-[0.35em] text-subtle sm:text-sm">
           Africa · Nigeria
         </p>
       </div>

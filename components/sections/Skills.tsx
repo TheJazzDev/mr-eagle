@@ -132,12 +132,12 @@ export default function Skills() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-background-elevated py-24 sm:py-32 md:py-40 lg:py-48"
+      className="relative overflow-hidden bg-background-elevated py-32 sm:py-40 md:py-52 lg:py-64"
     >
-      <div className="mx-auto max-w-5xl px-6 sm:px-8 md:px-12 lg:px-16">
+      <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-12 lg:px-20">
         {/* Section Label */}
-        <div className="mb-16 sm:mb-20 md:mb-24">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent sm:text-sm">
+        <div className="mb-20 sm:mb-24 md:mb-32">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.25em] text-accent sm:text-sm">
             03 — The Tooling
           </p>
         </div>
@@ -145,13 +145,13 @@ export default function Skills() {
         {/* Title */}
         <h2
           ref={titleRef}
-          className="mb-16 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-20 md:mb-24"
+          className="mb-20 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight text-foreground sm:mb-24 md:mb-32"
         >
           Full-stack operator.
         </h2>
 
         {/* Skill Clusters */}
-        <div className="space-y-14 sm:space-y-18 md:space-y-20">
+        <div className="space-y-20 sm:space-y-24 md:space-y-28 lg:space-y-32">
           {skillClusters.map((cluster, index) => (
             <div
               key={cluster.category}
@@ -160,24 +160,24 @@ export default function Skills() {
               }}
             >
               {/* Category */}
-              <h3 className="mb-6 text-base font-bold text-accent sm:mb-8 sm:text-lg md:text-xl">
+              <h3 className="mb-8 text-lg font-bold text-accent sm:mb-10 sm:text-xl md:mb-12 md:text-2xl">
                 {cluster.category}
               </h3>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
                 {cluster.skills.map((skill) => (
                   <div
                     key={skill}
-                    className="skill-item group relative overflow-hidden rounded-lg border border-border bg-background px-5 py-4 transition-all duration-300 hover:border-accent/40 hover:bg-background-subtle sm:rounded-xl sm:px-6 sm:py-5"
+                    className="skill-item group relative overflow-hidden rounded-xl border border-border bg-background px-6 py-5 transition-all duration-300 hover:border-accent/40 hover:bg-background-subtle sm:rounded-2xl sm:px-8 sm:py-6 md:px-10 md:py-7"
                   >
-                    <span className="relative z-10 block text-sm font-medium text-foreground/90 sm:text-base">
+                    <span className="relative z-10 block text-base font-medium text-foreground/90 sm:text-lg">
                       {skill}
                     </span>
 
                     {/* Hover gradient effect */}
                     <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                      <div className="absolute bottom-0 right-0 h-16 w-16 bg-[radial-gradient(circle,rgba(255,107,0,0.12)_0%,transparent_70%)] sm:h-20 sm:w-20" />
+                      <div className="absolute bottom-0 right-0 h-20 w-20 bg-[radial-gradient(circle,rgba(255,107,0,0.12)_0%,transparent_70%)] sm:h-24 sm:w-24" />
                     </div>
                   </div>
                 ))}
