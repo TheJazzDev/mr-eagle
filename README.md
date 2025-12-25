@@ -1,36 +1,239 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🦅 Raymond Henry Portfolio - Mr Eagle
 
-## Getting Started
+A stunning, modern Web3 portfolio website built as a birthday gift for Raymond Henry (Mr Eagle), showcasing his impressive journey as a Project Manager, Marketer, and Advisor in the Web3 space.
 
-First, run the development server:
+## ✨ Features
 
+- 🎨 **Beautiful Web3-Inspired Design** - Gradient animations, smooth transitions, and modern UI
+- 🌙 **Dark Mode Support** - Automatic dark/light mode based on system preferences
+- 📱 **Fully Responsive** - Mobile-first design that looks perfect on all devices
+- ⚡ **Blazing Fast** - Built with Next.js 15 and optimized for performance
+- 🎭 **Smooth Animations** - Powered by Framer Motion for delightful interactions
+- 🗄️ **Database-Driven** - Dynamic content managed through Prisma and PostgreSQL
+- 🔄 **Easy Updates** - Update portfolio content through the database
+- 🎯 **SEO Optimized** - Meta tags and Open Graph support
+
+## 🚀 Tech Stack
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Animations:** Framer Motion
+- **Database:** PostgreSQL with Prisma ORM
+- **Icons:** Lucide React
+- **Fonts:** Geist Sans & Geist Mono
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js 18+ installed
+- PostgreSQL database (local or hosted)
+- npm or yarn package manager
+
+### Setup Steps
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment variables:**
+
+   Update the `.env` file with your PostgreSQL database URL:
+   ```env
+   DATABASE_URL="postgresql://username:password@localhost:5432/eagle_portfolio?schema=public"
+   ```
+
+   Replace `username`, `password`, and database connection details with your actual PostgreSQL credentials.
+
+3. **Initialize the database:**
+   ```bash
+   # Generate Prisma client
+   npx prisma generate
+
+   # Run migrations to create database tables
+   npx prisma migrate dev --name init
+
+   # Seed the database with Raymond's portfolio data
+   npx prisma db seed
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser:**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🎨 Customization
+
+### Updating Portfolio Content
+
+The portfolio content is stored in the PostgreSQL database. You can update it in two ways:
+
+#### Option 1: Update the Seed File (Recommended)
+
+Edit `prisma/seed.ts` with new content, then run:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx prisma db seed
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Option 2: Direct Database Updates
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Use Prisma Studio for a visual interface:
+```bash
+npx prisma studio
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This opens a browser-based GUI where you can:
+- Add/edit experiences
+- Update skills
+- Modify education details
+- Change profile information
 
-## Learn More
+### Customizing Colors
 
-To learn more about Next.js, take a look at the following resources:
+The color scheme can be modified in `app/globals.css`:
+- `--primary`: Main brand color (blue)
+- `--secondary`: Secondary color (purple)
+- `--accent`: Accent color (cyan)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Adding New Sections
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create a new component in `/components`
+2. Add it to `/app/page.tsx`
+3. Update the navigation in `/components/Navigation.tsx`
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+casi/
+├── app/
+│   ├── layout.tsx          # Root layout with Navigation
+│   ├── page.tsx            # Main page integrating all components
+│   └── globals.css         # Global styles and CSS variables
+├── components/
+│   ├── Hero.tsx            # Hero section with profile intro
+│   ├── ExperienceTimeline.tsx  # Professional experience timeline
+│   ├── Skills.tsx          # Skills showcase by category
+│   ├── Education.tsx       # Education and certifications
+│   ├── Contact.tsx         # Contact information and footer
+│   └── Navigation.tsx      # Sticky navigation with smooth scroll
+├── lib/
+│   └── prisma.ts           # Prisma client singleton
+├── prisma/
+│   ├── schema.prisma       # Database schema
+│   └── seed.ts             # Seed data with portfolio content
+├── public/
+│   └── eagle-avatar.svg    # Profile avatar image
+└── README.md
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🗄️ Database Schema
+
+### Profile
+- Personal information
+- Contact details
+- Social media links
+
+### Experience
+- Company name
+- Position/role
+- Date range
+- Description (array)
+- Current role flag
+
+### Education
+- Institution
+- Degree
+- Field of study
+- Year
+
+### Skills
+- Skill name
+- Category (Leadership, Marketing, Technical, etc.)
+
+## 🎯 Key Components
+
+### Hero Section
+- Animated background with floating orbs
+- Profile image with glow effect
+- Introduction and tagline
+- Social media links
+- Smooth scroll indicator
+
+### Experience Timeline
+- Chronological display of roles
+- Alternating left/right layout on desktop
+- Current role highlighting
+- Animated entry effects
+- Hover interactions
+
+### Skills Showcase
+- Grouped by category
+- Icon-based cards
+- Color-coded by skill type
+- Staggered animations
+- Responsive grid layout
+
+### Education
+- Harvard credentials display
+- Hover effects
+- Year and field information
+- Decorative elements
+
+### Contact Footer
+- Multi-channel contact options
+- Social media integration
+- Animated background
+- Made with love message
+
+## 🚀 Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import project on [Vercel](https://vercel.com)
+3. Add environment variables in Vercel dashboard
+4. Deploy!
+
+### Environment Variables for Production
+
+Set these in your hosting platform:
+```env
+DATABASE_URL="your-production-database-url"
+```
+
+## 🔧 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npx prisma studio` - Open Prisma Studio
+- `npx prisma migrate dev` - Run database migrations
+- `npx prisma db seed` - Seed database with data
+
+## 🎁 Gift Message
+
+This portfolio was crafted with care as a birthday gift for Raymond Henry. Over 10 years of friendship, you've helped secure amazing opportunities. This is a small token of appreciation for everything you've done.
+
+May this portfolio showcase your incredible journey in the Web3 space and help you reach even greater heights!
+
+Happy Birthday, Mr Eagle! 🦅🎉
+
+## 📝 License
+
+This project is created as a personal gift. Feel free to customize and use it as needed.
+
+## 🙏 Acknowledgments
+
+- Built with Next.js and the amazing React ecosystem
+- Animations powered by Framer Motion
+- Icons from Lucide React
+- Styled with Tailwind CSS
+
+---
+
+**Made with ❤️ by a good friend**

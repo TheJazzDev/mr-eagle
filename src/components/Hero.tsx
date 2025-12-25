@@ -1,0 +1,256 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { Twitter, Send, Mail, MapPin, Phone } from 'lucide-react'
+import Image from 'next/image'
+
+interface HeroProps {
+  profile: {
+    name: string
+    tagline: string
+    bio: string
+    location: string
+    email: string
+    phone?: string | null
+    twitter?: string | null
+    telegram?: string | null
+  }
+}
+
+export default function Hero({ profile }: HeroProps) {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring' as const,
+        stiffness: 100,
+        damping: 10
+      }
+    }
+  }
+
+  const floatingVariants = {
+    initial: { y: 0 },
+    animate: {
+      y: [-10, 10, -10],
+      transition: {
+        duration: 6,
+        repeat: Infinity,
+        ease: 'easeInOut' as const
+      }
+    }
+  }
+
+  return (
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-blue-50 via-purple-50 to-cyan-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-[10%] left-[10%] w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-400/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+        />
+        <motion.div
+          className="absolute bottom-[10%] right-[10%] w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-purple-400/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.5, 0.3, 0.5]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+        />
+        <motion.div
+          className="absolute top-[50%] left-[50%] w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-cyan-400/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.4, 0.6, 0.4],
+            x: [-50, 50, -50],
+            y: [-50, 50, -50]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+        />
+      </div>
+
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.02] dark:opacity-[0.05]" />
+
+      {/* Main content */}
+      <motion.div
+        className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16">
+          {/* Profile Image */}
+          <motion.div
+            variants={floatingVariants}
+            initial="initial"
+            animate="animate"
+            className="shrink-0"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-linear-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-2xl opacity-30 scale-110" />
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 sm:border-[6px] border-white/20 dark:border-white/10 shadow-2xl glow">
+                <Image
+                  src="/eagle-avatar.svg"
+                  alt={profile.name}
+                  width={256}
+                  height={256}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Text content */}
+          <div className="flex-1 text-center md:text-left">
+            <motion.div variants={itemVariants} className="mb-3 sm:mb-4">
+              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded-full text-xs sm:text-sm font-medium border border-blue-500/20">
+                🦅 Mr Eagle
+              </span>
+            </motion.div>
+
+            <motion.h1
+              variants={itemVariants}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6"
+            >
+              <span className="gradient-text">{profile.name}</span>
+            </motion.h1>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 md:mb-8 font-medium"
+            >
+              {profile.tagline}
+            </motion.p>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed"
+            >
+              {profile.bio.split('\n\n')[0]}
+            </motion.p>
+
+            {/* Contact info */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8"
+            >
+              <a
+                href={`mailto:${profile.email}`}
+                className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              >
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="hidden sm:inline">{profile.email}</span>
+                <span className="sm:hidden">Email</span>
+              </a>
+              <span className="text-gray-300 dark:text-gray-700">•</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>{profile.location}</span>
+              </div>
+              {profile.phone && (
+                <>
+                  <span className="text-gray-300 dark:text-gray-700 hidden sm:inline">•</span>
+                  <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 hidden sm:flex">
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span>{profile.phone}</span>
+                  </div>
+                </>
+              )}
+            </motion.div>
+
+            {/* Social links */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center justify-center md:justify-start gap-3 sm:gap-4"
+            >
+              {profile.twitter && (
+                <motion.a
+                  href={`https://twitter.com/${profile.twitter.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Twitter className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-xs sm:text-sm md:text-base font-medium">Twitter</span>
+                </motion.a>
+              )}
+              {profile.telegram && (
+                <motion.a
+                  href={`https://t.me/${profile.telegram.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="text-xs sm:text-sm md:text-base font-medium">Telegram</span>
+                </motion.a>
+              )}
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2"
+        animate={{
+          y: [0, 10, 0]
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: 'easeInOut'
+        }}
+      >
+        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center p-1.5 sm:p-2">
+          <motion.div
+            className="w-1 h-1.5 sm:w-1.5 sm:h-2 bg-gray-400 dark:bg-gray-600 rounded-full"
+            animate={{
+              y: [0, 12, 0]
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          />
+        </div>
+      </motion.div>
+    </section>
+  )
+}
