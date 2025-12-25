@@ -40,26 +40,22 @@ const categoryColors: Record<string, string> = {
 function SkillCard({ skill, index }: { skill: Skill; index: number }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-  const Icon = categoryIcons[skill.category] || Sparkles
   const colorClass = categoryColors[skill.category] || 'from-gray-500 to-gray-700'
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      whileHover={{ scale: 1.05, y: -5 }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.3, delay: index * 0.02 }}
+      whileHover={{ scale: 1.03, y: -2 }}
       className="group relative"
     >
       {/* Glow effect */}
-      <div className={`absolute -inset-1 bg-linear-to-br ${colorClass} opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500 rounded-xl sm:rounded-2xl`} />
+      <div className={`absolute -inset-0.5 bg-linear-to-br ${colorClass} opacity-0 group-hover:opacity-20 blur-lg transition-all duration-300 rounded-lg`} />
 
-      <div className="relative bg-white dark:bg-gray-900 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200 dark:border-gray-800 shadow-lg group-hover:shadow-2xl transition-all duration-300">
-        <div className={`inline-flex p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-linear-to-br ${colorClass} mb-2 sm:mb-3`}>
-          <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
-        </div>
-        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 dark:text-white">
+      <div className="relative bg-white dark:bg-gray-900 rounded-lg p-2.5 sm:p-3 md:p-4 border border-gray-200 dark:border-gray-800 shadow-md group-hover:shadow-xl group-hover:border-gray-300 dark:group-hover:border-gray-700 transition-all duration-300">
+        <h3 className="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-white text-center">
           {skill.name}
         </h3>
       </div>
@@ -70,6 +66,8 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
 function CategorySection({ category, skills }: { category: string; skills: Skill[] }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+  const Icon = categoryIcons[category] || Sparkles
+  const colorClass = categoryColors[category] || 'from-gray-500 to-gray-700'
 
   return (
     <motion.div
@@ -77,12 +75,18 @@ function CategorySection({ category, skills }: { category: string; skills: Skill
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className="mb-8 sm:mb-12"
+      className="mb-8 sm:mb-10 md:mb-12"
     >
-      <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-gray-800 dark:text-gray-200">
-        {category}
-      </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+      <div className="flex items-center gap-3 mb-4 sm:mb-6">
+        <div className={`p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-linear-to-br ${colorClass}`}>
+          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+        </div>
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-200">
+          {category}
+        </h3>
+        <div className="flex-1 h-px bg-linear-to-r from-gray-300 dark:from-gray-700 to-transparent ml-4" />
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
         {skills.map((skill, index) => (
           <SkillCard key={skill.id} skill={skill} index={index} />
         ))}

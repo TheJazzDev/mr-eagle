@@ -71,16 +71,32 @@ A stunning, modern Web3 portfolio website built as a birthday gift for Raymond H
 
 ### Updating Portfolio Content
 
-The portfolio content is stored in the PostgreSQL database. You can update it in two ways:
+The portfolio content is stored in the PostgreSQL database. You can update it in **three ways**:
 
-#### Option 1: Update the Seed File (Recommended)
+#### Option 1: Admin Dashboard (Easiest!)
+
+Raymond has a secret admin panel where he can manage everything without touching code:
+
+1. Navigate to: `http://localhost:3000/eagle-dash-2025`
+2. Password: `eagle2025` (change this in production!)
+3. Manage experiences and skills through beautiful forms
+4. Add, edit, or delete content instantly
+
+**Features:**
+- ✅ Add/edit/delete work experiences
+- ✅ Manage skills by category
+- ✅ User-friendly interface
+- ✅ No coding required!
+- ✅ Changes appear instantly on the website
+
+#### Option 2: Update the Seed File
 
 Edit `prisma/seed.ts` with new content, then run:
 ```bash
 npx prisma db seed
 ```
 
-#### Option 2: Direct Database Updates
+#### Option 3: Direct Database Updates
 
 Use Prisma Studio for a visual interface:
 ```bash

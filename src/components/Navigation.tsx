@@ -1,18 +1,12 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Home, Briefcase, Award, GraduationCap, Mail, Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const { scrollY } = useScroll()
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 100],
-    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.9)']
-  )
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,10 +36,9 @@ export default function Navigation() {
     <>
       {/* Desktop Navigation */}
       <motion.nav
-        style={{ backgroundColor }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg shadow-lg'
+            ? 'bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-gray-200/20 dark:border-gray-700/20'
             : 'bg-transparent'
         }`}
       >
