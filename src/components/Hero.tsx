@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Twitter, Send, Mail, Phone } from 'lucide-react'
+import { Twitter, Send } from 'lucide-react'
 import Image from 'next/image'
 
 interface HeroProps {
@@ -153,7 +153,7 @@ export default function Hero({ profile }: HeroProps) {
             >
               {profile.bio.split('\n\n')[0]}
             </motion.p>
-            
+
             {/* Social links */}
             <motion.div
               variants={itemVariants}
