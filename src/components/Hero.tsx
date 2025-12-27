@@ -120,7 +120,7 @@ export default function Hero({ profile }: HeroProps) {
               <div className="absolute inset-0 bg-linear-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-2xl opacity-30 scale-110" />
               <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 sm:border-[6px] border-white/20 dark:border-white/10 shadow-2xl glow">
                 <Image
-                  src="/eagle-avatar.jpg"
+                  src="/avatar.jpeg"
                   alt="Mr Eagle"
                   width={512}
                   height={512}
