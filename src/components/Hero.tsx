@@ -153,31 +153,7 @@ export default function Hero({ profile }: HeroProps) {
             >
               {profile.bio.split('\n\n')[0]}
             </motion.p>
-
-            {/* Contact info */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8"
-            >
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-              >
-                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="hidden sm:inline">{profile.email}</span>
-                <span className="sm:hidden">Email</span>
-              </a>
-              {profile.phone && (
-                <>
-                  <span className="text-gray-300 dark:text-gray-700">•</span>
-                  <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">
-                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span>{profile.phone}</span>
-                  </div>
-                </>
-              )}
-            </motion.div>
-
+            
             {/* Social links */}
             <motion.div
               variants={itemVariants}
