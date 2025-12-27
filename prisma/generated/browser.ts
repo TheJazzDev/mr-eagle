@@ -37,3 +37,8 @@ export type Education = Prisma.EducationModel
  * 
  */
 export type Skill = Prisma.SkillModel
+/**
+ * Model ContactMessage
+ * 
+ */
+export type ContactMessage = Prisma.ContactMessageModel

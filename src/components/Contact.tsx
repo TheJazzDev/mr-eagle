@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Twitter, Send, MapPin, Phone, Heart } from 'lucide-react'
+import { Mail, Twitter, Send, Heart } from 'lucide-react'
 
 interface ContactProps {
   profile: {
@@ -135,25 +135,6 @@ export default function Contact({ profile }: ContactProps) {
             </motion.a>
           )}
 
-          {/* Location */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            className="group relative bg-white/10 backdrop-blur-lg rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/20 transition-all"
-          >
-            <div className="flex flex-col items-center text-center gap-3 sm:gap-4">
-              <div className="p-3 sm:p-4 bg-cyan-500 rounded-xl sm:rounded-2xl group-hover:scale-110 transition-transform">
-                <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
-              <div>
-                <h3 className="text-xs sm:text-sm font-semibold mb-1 text-blue-100">Location</h3>
-                <p className="text-xs sm:text-sm text-white">{profile.location}</p>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* Footer */}
@@ -165,7 +146,7 @@ export default function Contact({ profile }: ContactProps) {
           className="text-center pt-8 sm:pt-12 border-t border-white/10"
         >
           <p className="text-xs sm:text-sm text-blue-100 mb-2 sm:mb-3">
-            © {new Date().getFullYear()} {profile.name}. All rights reserved.
+            © {new Date().getFullYear()} Mr Eagle. All rights reserved.
           </p>
           <motion.p
             className="text-xs sm:text-sm text-blue-200 flex items-center justify-center gap-2"

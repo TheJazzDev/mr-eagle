@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Home, Briefcase, Award, GraduationCap, Mail, Menu, X } from 'lucide-react'
+import { Home, Briefcase, Award, Mail, Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export default function Navigation() {
@@ -20,7 +20,6 @@ export default function Navigation() {
     { name: 'Home', icon: Home, href: '#hero' },
     { name: 'Experience', icon: Briefcase, href: '#experience' },
     { name: 'Skills', icon: Award, href: '#skills' },
-    { name: 'Education', icon: GraduationCap, href: '#education' },
     { name: 'Contact', icon: Mail, href: '#contact' }
   ]
 

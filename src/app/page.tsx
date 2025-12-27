@@ -1,7 +1,7 @@
 import Hero from '@/src/components/Hero';
 import ExperienceTimeline from '@/src/components/ExperienceTimeline';
 import Skills from '@/src/components/Skills';
-import Education from '@/src/components/Education';
+import ContactForm from '@/src/components/ContactForm';
 import Contact from '@/src/components/Contact';
 import { prisma } from '@/src/lib/prisma';
 
@@ -12,11 +12,6 @@ async function getPortfolioData() {
         experiences: {
           orderBy: {
             current: 'desc',
-          },
-        },
-        education: {
-          orderBy: {
-            year: 'desc',
           },
         },
         skills: {
@@ -56,11 +51,11 @@ export default async function Home() {
   }
 
   return (
-    <main className='min-h-screen'>
+    <main className='min-h-screen bg-[#2d1810]'>
       <Hero profile={data} />
       <ExperienceTimeline experiences={data.experiences} />
       <Skills skills={data.skills} />
-      <Education education={data.education} />
+      <ContactForm />
       <Contact profile={data} />
     </main>
   );

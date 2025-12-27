@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Twitter, Send, Mail, MapPin, Phone } from 'lucide-react'
+import { Twitter, Send, Mail, Phone } from 'lucide-react'
 import Image from 'next/image'
 
 interface HeroProps {
@@ -120,10 +120,10 @@ export default function Hero({ profile }: HeroProps) {
               <div className="absolute inset-0 bg-linear-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-2xl opacity-30 scale-110" />
               <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 sm:border-[6px] border-white/20 dark:border-white/10 shadow-2xl glow">
                 <Image
-                  src="/eagle-avatar.svg"
-                  alt={profile.name}
-                  width={256}
-                  height={256}
+                  src="/eagle-avatar.jpg"
+                  alt="Mr Eagle"
+                  width={512}
+                  height={512}
                   className="w-full h-full object-cover"
                   priority
                 />
@@ -133,17 +133,11 @@ export default function Hero({ profile }: HeroProps) {
 
           {/* Text content */}
           <div className="flex-1 text-center md:text-left">
-            <motion.div variants={itemVariants} className="mb-3 sm:mb-4">
-              <span className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 rounded-full text-xs sm:text-sm font-medium border border-blue-500/20">
-                🦅 Mr Eagle
-              </span>
-            </motion.div>
-
             <motion.h1
               variants={itemVariants}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 md:mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 md:mb-8"
             >
-              <span className="gradient-text">{profile.name}</span>
+              <span className="gradient-text">Mr Eagle</span>
             </motion.h1>
 
             <motion.p
@@ -173,15 +167,10 @@ export default function Hero({ profile }: HeroProps) {
                 <span className="hidden sm:inline">{profile.email}</span>
                 <span className="sm:hidden">Email</span>
               </a>
-              <span className="text-gray-300 dark:text-gray-700">•</span>
-              <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>{profile.location}</span>
-              </div>
               {profile.phone && (
                 <>
-                  <span className="text-gray-300 dark:text-gray-700 hidden sm:inline">•</span>
-                  <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400 hidden sm:flex">
+                  <span className="text-gray-300 dark:text-gray-700">•</span>
+                  <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400">
                     <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                     <span>{profile.phone}</span>
                   </div>
