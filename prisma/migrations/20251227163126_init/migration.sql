@@ -58,6 +58,20 @@ CREATE TABLE "Skill" (
     CONSTRAINT "Skill_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "ContactMessage" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "subject" TEXT,
+    "message" TEXT NOT NULL,
+    "read" BOOLEAN NOT NULL DEFAULT false,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "ContactMessage_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE INDEX "Experience_profileId_idx" ON "Experience"("profileId");
 
@@ -66,6 +80,9 @@ CREATE INDEX "Education_profileId_idx" ON "Education"("profileId");
 
 -- CreateIndex
 CREATE INDEX "Skill_profileId_idx" ON "Skill"("profileId");
+
+-- CreateIndex
+CREATE INDEX "ContactMessage_createdAt_idx" ON "ContactMessage"("createdAt");
 
 -- AddForeignKey
 ALTER TABLE "Experience" ADD CONSTRAINT "Experience_profileId_fkey" FOREIGN KEY ("profileId") REFERENCES "Profile"("id") ON DELETE CASCADE ON UPDATE CASCADE;

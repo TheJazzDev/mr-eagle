@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Plus, Edit2, Trash2, Save, X, Briefcase, Award, Loader2 } from 'lucide-react'
+import { Plus, Edit2, Trash2, Save, X, Briefcase, Award, Loader2, Mail } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { MessageCard, MessageDetailModal } from './admin/MessageComponents'
 
 interface Experience {
   id: string
@@ -20,16 +21,29 @@ interface Skill {
   category: string
 }
 
+interface ContactMessage {
+  id: string
+  name: string
+  email: string
+  subject: string | null
+  message: string
+  read: boolean
+  createdAt: string
+  updatedAt: string
+}
+
 export default function AdminDashboard() {
-  const [activeTab, setActiveTab] = useState<'experiences' | 'skills'>('experiences')
+  const [activeTab, setActiveTab] = useState<'experiences' | 'skills' | 'messages'>('experiences')
   const [experiences, setExperiences] = useState<Experience[]>([])
   const [skills, setSkills] = useState<Skill[]>([])
+  const [messages, setMessages] = useState<ContactMessage[]>([])
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [editingExp, setEditingExp] = useState<Experience | null>(null)
   const [editingSkill, setEditingSkill] = useState<Skill | null>(null)
   const [showExpForm, setShowExpForm] = useState(false)
   const [showSkillForm, setShowSkillForm] = useState(false)
+  const [selectedMessage, setSelectedMessage] = useState<ContactMessage | null>(null)
 
   // Fetch data
   useEffect(() => {
@@ -38,10 +52,15 @@ export default function AdminDashboard() {
 
   const fetchData = async () => {
     try {
-      const res = await fetch('/api/admin/data')
-      const data = await res.json()
+      const [dataRes, messagesRes] = await Promise.all([
+        fetch('/api/admin/data'),
+        fetch('/api/admin/contact')
+      ])
+      const data = await dataRes.json()
+      const messagesData = await messagesRes.json()
       setExperiences(data.experiences || [])
       setSkills(data.skills || [])
+      setMessages(messagesData.messages || [])
     } catch (error) {
       console.error('Failed to fetch data:', error)
     } finally {
@@ -117,6 +136,34 @@ export default function AdminDashboard() {
     }
   }
 
+  // Message handlers
+  const handleToggleRead = async (id: string, read: boolean) => {
+    try {
+      await fetch('/api/admin/contact', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, read })
+      })
+      await fetchData()
+    } catch (error) {
+      console.error('Failed to update message:', error)
+    }
+  }
+
+  const handleDeleteMessage = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this message?')) return
+    setSaving(true)
+    try {
+      await fetch(`/api/admin/contact?id=${id}`, { method: 'DELETE' })
+      await fetchData()
+      setSelectedMessage(null)
+    } catch (error) {
+      console.error('Failed to delete message:', error)
+    } finally {
+      setSaving(false)
+    }
+  }
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
@@ -128,10 +175,10 @@ export default function AdminDashboard() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Tabs */}
-      <div className="flex gap-2 mb-6 sm:mb-8 border-b border-gray-200 dark:border-gray-800">
+      <div className="flex gap-2 mb-6 sm:mb-8 border-b border-gray-200 dark:border-gray-800 overflow-x-auto">
         <button
           onClick={() => setActiveTab('experiences')}
-          className={`px-4 py-2 sm:px-6 sm:py-3 font-medium text-sm sm:text-base transition-colors relative ${
+          className={`px-4 py-2 sm:px-6 sm:py-3 font-medium text-sm sm:text-base transition-colors relative shrink-0 ${
             activeTab === 'experiences'
               ? 'text-blue-500'
               : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
@@ -148,7 +195,7 @@ export default function AdminDashboard() {
         </button>
         <button
           onClick={() => setActiveTab('skills')}
-          className={`px-4 py-2 sm:px-6 sm:py-3 font-medium text-sm sm:text-base transition-colors relative ${
+          className={`px-4 py-2 sm:px-6 sm:py-3 font-medium text-sm sm:text-base transition-colors relative shrink-0 ${
             activeTab === 'skills'
               ? 'text-blue-500'
               : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
@@ -157,6 +204,28 @@ export default function AdminDashboard() {
           <Award className="w-4 h-4 sm:w-5 sm:h-5 inline mr-2" />
           Skills
           {activeTab === 'skills' && (
+            <motion.div
+              layoutId="activeTab"
+              className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500"
+            />
+          )}
+        </button>
+        <button
+          onClick={() => setActiveTab('messages')}
+          className={`px-4 py-2 sm:px-6 sm:py-3 font-medium text-sm sm:text-base transition-colors relative shrink-0 ${
+            activeTab === 'messages'
+              ? 'text-blue-500'
+              : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+          }`}
+        >
+          <Mail className="w-4 h-4 sm:w-5 sm:h-5 inline mr-2" />
+          Messages
+          {messages.filter(m => !m.read).length > 0 && (
+            <span className="ml-2 px-2 py-0.5 text-xs bg-red-500 text-white rounded-full">
+              {messages.filter(m => !m.read).length}
+            </span>
+          )}
+          {activeTab === 'messages' && (
             <motion.div
               layoutId="activeTab"
               className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500"
@@ -273,6 +342,56 @@ export default function AdminDashboard() {
                   setEditingSkill(null)
                 }}
                 saving={saving}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+      )}
+
+      {/* Messages Tab */}
+      {activeTab === 'messages' && (
+        <div>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+              Contact Messages
+            </h2>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+              <span>{messages.filter(m => !m.read).length} unread</span>
+              <span>•</span>
+              <span>{messages.length} total</span>
+            </div>
+          </div>
+
+          {messages.length === 0 ? (
+            <div className="text-center py-12 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800">
+              <Mail className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mx-auto mb-4" />
+              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400">No messages yet</p>
+            </div>
+          ) : (
+            <div className="space-y-3 sm:space-y-4">
+              {messages.map((message) => (
+                <MessageCard
+                  key={message.id}
+                  message={message}
+                  onClick={() => setSelectedMessage(message)}
+                  onToggleRead={() => handleToggleRead(message.id, !message.read)}
+                  onDelete={() => handleDeleteMessage(message.id)}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Message Detail Modal */}
+          <AnimatePresence>
+            {selectedMessage && (
+              <MessageDetailModal
+                message={selectedMessage}
+                onClose={() => setSelectedMessage(null)}
+                onToggleRead={() => {
+                  handleToggleRead(selectedMessage.id, !selectedMessage.read)
+                  setSelectedMessage({ ...selectedMessage, read: !selectedMessage.read })
+                }}
+                onDelete={() => handleDeleteMessage(selectedMessage.id)}
               />
             )}
           </AnimatePresence>
