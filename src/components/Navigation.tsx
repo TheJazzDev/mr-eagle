@@ -37,7 +37,7 @@ export default function Navigation() {
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-gray-50/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-gray-200/20 dark:border-gray-700/20'
+            ? 'bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-gray-700/20'
             : 'bg-transparent'
         }`}
       >
@@ -59,7 +59,7 @@ export default function Navigation() {
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="flex items-center gap-2 px-3 py-2 lg:px-4 lg:py-2.5 text-sm lg:text-base text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                  className="flex items-center gap-2 px-3 py-2 lg:px-4 lg:py-2.5 text-sm lg:text-base text-gray-300 hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-800"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -72,7 +72,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-gray-700 dark:text-gray-300"
+              className="md:hidden p-2 text-gray-300"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -88,7 +88,7 @@ export default function Navigation() {
           x: isOpen ? 0 : '100%'
         }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="fixed top-14 sm:top-16 right-0 bottom-0 w-64 bg-white dark:bg-gray-900 shadow-2xl z-40 md:hidden"
+        className="fixed top-14 sm:top-16 right-0 bottom-0 w-64 bg-gray-900 shadow-2xl z-40 md:hidden"
       >
         <div className="flex flex-col gap-2 p-4">
           {navItems.map((item, index) => (
@@ -98,7 +98,7 @@ export default function Navigation() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : 20 }}
               transition={{ delay: index * 0.05 }}
-              className="flex items-center gap-3 px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-gray-800 rounded-lg transition-colors"
             >
               <item.icon className="w-5 h-5" />
               <span className="text-base font-medium">{item.name}</span>

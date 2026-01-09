@@ -55,14 +55,14 @@ function ExperienceCard({ experience, index }: { experience: Experience; index: 
           {/* Glow effect on hover */}
           <div className="absolute -inset-1 bg-linear-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-2xl sm:rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
 
-          <div className="relative bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-gray-200 dark:border-gray-800 overflow-hidden">
+          <div className="relative bg-gray-900 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl border border-gray-800 overflow-hidden">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-linear-to-br from-blue-500/5 via-purple-500/5 to-cyan-500/5 rounded-bl-full" />
 
             {/* Current badge */}
             {experience.current && (
               <motion.div
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 border border-green-500/20"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 bg-green-500/10 text-green-400 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4 border border-green-500/20"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -75,12 +75,12 @@ function ExperienceCard({ experience, index }: { experience: Experience; index: 
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 gradient-text">
               {experience.position}
             </h3>
-            <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2 sm:mb-3">
+            <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-300 mb-2 sm:mb-3">
               {experience.company}
             </h4>
 
             {/* Date */}
-            <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base text-gray-500 dark:text-gray-400 mb-4 sm:mb-6">
+            <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base text-gray-400 mb-4 sm:mb-6">
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>
                 {experience.startDate} - {experience.endDate || 'Present'}
@@ -95,7 +95,7 @@ function ExperienceCard({ experience, index }: { experience: Experience; index: 
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                   transition={{ delay: 0.3 + i * 0.1 }}
-                  className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-400"
+                  className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm md:text-base text-gray-400"
                 >
                   <span className="shrink-0 w-1.5 h-1.5 sm:w-2 sm:h-2 mt-1.5 sm:mt-2 rounded-full bg-linear-to-br from-blue-500 to-purple-500" />
                   <span className="flex-1">{desc}</span>
@@ -117,9 +117,9 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
   })
 
   return (
-    <section id="experience" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-50 dark:bg-black relative overflow-hidden">
+    <section id="experience" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-black relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.02] dark:opacity-[0.05]" />
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.05]" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section header */}
@@ -133,7 +133,7 @@ export default function ExperienceTimeline({ experiences }: ExperienceTimelinePr
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6">
             <span className="gradient-text">Professional Journey</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
             A timeline of impactful roles across Web3, blockchain, and emerging technologies
           </p>
         </motion.div>

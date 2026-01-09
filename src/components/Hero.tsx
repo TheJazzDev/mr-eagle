@@ -55,7 +55,7 @@ export default function Hero({ profile }: HeroProps) {
   }
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-blue-50 via-purple-50 to-cyan-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-blue-900/20">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-gray-900 via-purple-900/20 to-blue-900/20">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -99,7 +99,7 @@ export default function Hero({ profile }: HeroProps) {
       </div>
 
       {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.02] dark:opacity-[0.05]" />
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-[0.05]" />
 
       {/* Main content */}
       <motion.div
@@ -118,7 +118,7 @@ export default function Hero({ profile }: HeroProps) {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-linear-to-br from-blue-500 via-purple-500 to-cyan-500 rounded-full blur-2xl opacity-30 scale-110" />
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 sm:border-[6px] border-white/20 dark:border-white/10 shadow-2xl glow">
+              <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 sm:border-[6px] border-white/10 shadow-2xl glow">
                 <Image
                   src="/avatar.jpeg"
                   alt="Mr Eagle"
@@ -142,14 +142,14 @@ export default function Hero({ profile }: HeroProps) {
 
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 md:mb-8 font-medium"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-4 sm:mb-6 md:mb-8 font-medium"
             >
               {profile.tagline}
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed"
             >
               {profile.bio.split('\n\n')[0]}
             </motion.p>
@@ -202,9 +202,9 @@ export default function Hero({ profile }: HeroProps) {
           ease: 'easeInOut'
         }}
       >
-        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex items-start justify-center p-1.5 sm:p-2">
+        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-gray-600 rounded-full flex items-start justify-center p-1.5 sm:p-2">
           <motion.div
-            className="w-1 h-1.5 sm:w-1.5 sm:h-2 bg-gray-400 dark:bg-gray-600 rounded-full"
+            className="w-1 h-1.5 sm:w-1.5 sm:h-2 bg-gray-600 rounded-full"
             animate={{
               y: [0, 12, 0]
             }}

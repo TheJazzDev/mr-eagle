@@ -34,12 +34,12 @@ export default async function Home() {
 
   if (!data) {
     return (
-      <div className='min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black'>
+      <div className='min-h-screen flex items-center justify-center bg-black'>
         <div className='text-center'>
-          <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white'>
+          <h1 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white'>
             Welcome to the Portfolio
           </h1>
-          <p className='text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6'>
+          <p className='text-sm sm:text-base md:text-lg text-gray-400 mb-6'>
             Setting up the database. Please run migrations first.
           </p>
           <code className='bg-gray-800 text-gray-100 px-4 py-2 rounded-lg text-xs sm:text-sm block max-w-lg mx-auto'>

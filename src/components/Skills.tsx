@@ -54,8 +54,8 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       {/* Glow effect */}
       <div className={`absolute -inset-0.5 bg-linear-to-br ${colorClass} opacity-0 group-hover:opacity-20 blur-lg transition-all duration-300 rounded-lg`} />
 
-      <div className="relative bg-white dark:bg-gray-900 rounded-lg p-2.5 sm:p-3 md:p-4 border border-gray-200 dark:border-gray-800 shadow-md group-hover:shadow-xl group-hover:border-gray-300 dark:group-hover:border-gray-700 transition-all duration-300">
-        <h3 className="text-xs sm:text-sm md:text-base font-semibold text-gray-900 dark:text-white text-center">
+      <div className="relative bg-gray-900 rounded-lg p-2.5 sm:p-3 md:p-4 border border-gray-800 shadow-md group-hover:shadow-xl group-hover:border-gray-700 transition-all duration-300">
+        <h3 className="text-xs sm:text-sm md:text-base font-semibold text-white text-center">
           {skill.name}
         </h3>
       </div>
@@ -81,10 +81,10 @@ function CategorySection({ category, skills }: { category: string; skills: Skill
         <div className={`p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-linear-to-br ${colorClass}`}>
           <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
         </div>
-        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-200">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-200">
           {category}
         </h3>
-        <div className="flex-1 h-px bg-linear-to-r from-gray-300 dark:from-gray-700 to-transparent ml-4" />
+        <div className="flex-1 h-px bg-linear-to-r from-gray-700 to-transparent ml-4" />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
         {skills.map((skill, index) => (
@@ -106,7 +106,7 @@ export default function Skills({ skills }: SkillsProps) {
   }, {} as Record<string, Skill[]>)
 
   return (
-    <section id="skills" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white dark:bg-gray-950 relative overflow-hidden">
+    <section id="skills" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-950 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -145,7 +145,7 @@ export default function Skills({ skills }: SkillsProps) {
           className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6 border border-purple-500/20"
+            className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-purple-500/20 text-purple-400 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6 border border-purple-500/20"
             animate={{
               boxShadow: [
                 '0 0 0 0 rgba(168, 85, 247, 0)',
@@ -165,7 +165,7 @@ export default function Skills({ skills }: SkillsProps) {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6">
             <span className="gradient-text">Skills & Expertise</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
             A comprehensive toolkit built through years of hands-on experience in Web3, product management, and growth strategy
           </p>
         </motion.div>
