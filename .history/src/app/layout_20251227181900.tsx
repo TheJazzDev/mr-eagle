@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Mr Eagle | Web3 Project Manager & Growth Strategist',
+  title: 'Raymond Henry | Web3 Project Manager & Growth Strategist',
   description:
-    'Portfolio of Mr Eagle - Project Manager, Marketer and Advisor specializing in Web3, blockchain, and growth strategy. COO at Block AI with experience across multiple Web3 ventures.',
+    'Portfolio of Raymond Henry (Mr Eagle) - Project Manager, Marketer and Advisor specializing in Web3, blockchain, and growth strategy. COO at Block AI with experience across multiple Web3 ventures.',
   keywords: [
     'Web3',
     'Project Manager',
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     'Marketing',
     'Business Development',
   ],
-  authors: [{ name: 'Mr Eagle' }],
+  authors: [{ name: 'Raymond Henry' }],
   openGraph: {
-    title: 'Mr Eagle | Web3 Project Manager',
+    title: 'Raymond Henry | Web3 Project Manager',
     description:
       'Portfolio showcasing expertise in Web3 project management, growth strategy, and blockchain innovation',
     type: 'website',
