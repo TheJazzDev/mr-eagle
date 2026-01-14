@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Twitter, Send, Heart } from 'lucide-react'
+import { Mail, Twitter, Send } from 'lucide-react'
 
 interface ContactProps {
   profile: {
@@ -62,8 +62,35 @@ export default function Contact({ profile }: ContactProps) {
           </p>
         </motion.div>
 
+        {/* Availability Status Badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex justify-center mb-8 sm:mb-12"
+        >
+          <div className="inline-flex items-center gap-2 sm:gap-3 bg-green-500/20 backdrop-blur-sm border border-green-400/50 rounded-full px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4">
+            <motion.div
+              className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [1, 0.7, 1]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            />
+            <span className="text-sm sm:text-base md:text-lg font-semibold text-green-300">
+              Available for new projects
+            </span>
+          </div>
+        </motion.div>
+
         {/* Contact cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 justify-items-center max-w-4xl mx-auto">
           {/* Email */}
           <motion.a
             href={`mailto:${profile.email}`}
@@ -148,19 +175,17 @@ export default function Contact({ profile }: ContactProps) {
           <p className="text-xs sm:text-sm text-blue-100 mb-2 sm:mb-3">
             © {new Date().getFullYear()} Mr Eagle. All rights reserved.
           </p>
-          <motion.p
-            className="text-xs sm:text-sm text-blue-200 flex items-center justify-center gap-2"
-            animate={{
-              opacity: [0.5, 1, 0.5]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }}
-          >
-            Made with <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-red-400 fill-current" /> by a good friend
-          </motion.p>
+          <p className="text-xs sm:text-sm text-blue-200">
+            Made by{' '}
+            <a
+              href="https://www.jazzdev.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-300 hover:text-white transition-colors underline"
+            >
+              JazzDev
+            </a>
+          </p>
         </motion.div>
       </div>
     </section>
